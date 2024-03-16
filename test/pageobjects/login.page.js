@@ -13,9 +13,12 @@ class LoginPage extends Page {
     get inputPassword () { return $('#password');}
     get btnSubmit () { return $('#login-button');}
     get errorMessage () { return $("//h3[text()='Epic sadface: Sorry, this user has been locked out.']");}
+    get logoutButton(){return $("#logout_sidebar_link");}
+    get threeLinesMenu(){return $("#react-burger-menu-btn");}
 
     AppHeader = "//div[text()='Swag Labs']"
     errorTextXpath = "//h3[text()='Epic sadface: Sorry, this user has been locked out.']";
+    LoginPageUsernameArea = "//div[@class='login_credentials_wrap-inner']"
 
 
 
@@ -47,6 +50,16 @@ class LoginPage extends Page {
         await CommonUtil.assertElementVisible(this.errorTextXpath)
         console.log("Error Message shown")
         
+
+    }
+
+    async Logout(){
+        await this.threeLinesMenu.click();
+        await this.logoutButton.waitForClickable()
+        await this.logoutButton.click();
+        await CommonUtil.assertElementVisible(this.LoginPageUsernameArea)
+
+
 
     }
 

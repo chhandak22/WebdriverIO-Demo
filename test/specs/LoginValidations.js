@@ -8,6 +8,8 @@ describe('Login validations', () => {
         browser.maximizeWindow()
         await LoginPage.login(TestData.standard_user, TestData.password)
         await LoginPage.verifyLogin()
+        await LoginPage.Logout()
+
 
     })
 
@@ -16,6 +18,7 @@ describe('Login validations', () => {
         browser.maximizeWindow()
         await LoginPage.login(TestData.glitch_user, TestData.password)
         await LoginPage.verifyLogin()
+        await LoginPage.Logout()
 
     })
 
