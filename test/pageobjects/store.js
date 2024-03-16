@@ -6,72 +6,27 @@ const constant = require('../Utilities/constant');
 const loginPage = require('./login.page');
 
 /**
- * sub page containing specific selectors and methods for a specific page
+ * Page Selectors
  */
 class store extends Page {
-    /**
-     * define selectors using getter methods
-     */
    
-    get dropdownButton () {
-        return $("//select[@class='product_sort_container']");
-    }
-
-    get addFirstItem(){
-        return $("#add-to-cart-sauce-labs-onesie");
-    }
-
-    get addFirstItem(){
-        return $("#add-to-cart-sauce-labs-onesie");
-    }
-    
-    get addSecondItem(){
-        return $("#add-to-cart-sauce-labs-bike-light");
-    }
-    
-    get addThirdItem(){
-        return $("#add-to-cart-sauce-labs-bolt-t-shirt");
-    }
-
-    get firstItemName(){
-        return $("(//div[@class='inventory_item_name '])[1]");
-    }
-    get secondItemName(){
-        return $("(//div[@class='inventory_item_name '])[2]");
-    }
-    get thirdItemName(){
-        return $("(//div[@class='inventory_item_name '])[3]");
-    }
-
-
-    get firstItemNameCartText(){
-        return $("(//div[@class='inventory_item_name'])[1]");
-    }
-    get secondItemNameCartText(){
-        return $("(//div[@class='inventory_item_name'])[2]");
-    }
-    get thirdItemNameCartText(){
-        return $("(//div[@class='inventory_item_name'])[3]");
-    }
-
-    get cartLink(){
-        return $("//a[@class='shopping_cart_link']");
-    }
-    
-    get logoutButton(){
-        return $("#logout_sidebar_link");
-    }
-    get threeLinesMenu(){
-        return $("#react-burger-menu-btn");
-    }
-
-    get checkoutButton(){
-        return $("#checkout");
-    }
-
-    get checkoutHeader(){
-        return $("//span[text()='Checkout: Your Information']");
-    }
+   
+    get dropdownButton () { return $("//select[@class='product_sort_container']");  }
+    get addFirstItem(){ return $("#add-to-cart-sauce-labs-onesie");}
+    get addFirstItem(){ return $("#add-to-cart-sauce-labs-onesie");}   
+    get addSecondItem(){return $("#add-to-cart-sauce-labs-bike-light");}   
+    get addThirdItem(){ return $("#add-to-cart-sauce-labs-bolt-t-shirt"); }
+    get firstItemName(){return $("(//div[@class='inventory_item_name '])[1]"); }
+    get secondItemName(){ return $("(//div[@class='inventory_item_name '])[2]");}
+    get thirdItemName(){return $("(//div[@class='inventory_item_name '])[3]");}
+    get firstItemNameCartText(){return $("(//div[@class='inventory_item_name'])[1]");}
+    get secondItemNameCartText(){ return $("(//div[@class='inventory_item_name'])[2]"); }
+    get thirdItemNameCartText(){return $("(//div[@class='inventory_item_name'])[3]");}
+    get cartLink(){return $("//a[@class='shopping_cart_link']");}   
+    get logoutButton(){return $("#logout_sidebar_link");}
+    get threeLinesMenu(){return $("#react-burger-menu-btn");}
+    get checkoutButton(){return $("#checkout");}
+    get checkoutHeader(){return $("//span[text()='Checkout: Your Information']");}
     
     continueButton = "#continue"
     defaultDropdownValue = "//span[@class='active_option' and text() = 'Name (A to Z)']"
@@ -81,8 +36,7 @@ class store extends Page {
 
 
  /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
+     *Page Methods
      */
 
     async verifyDefaultSortOrder(){
@@ -91,7 +45,7 @@ class store extends Page {
 
         const elements = await browser.$$(this.ItemNames);
 
-        // Extract the text content of each element
+
         const texts = [];
         for (const element of elements) {
             const text = await element.getText();
@@ -99,7 +53,7 @@ class store extends Page {
             texts.push(text);
         }
     
-        // Check if the texts are sorted alphabetically
+      
         for (let i = 0; i < texts.length - 1; i++) {
             const currentText = texts[i];
             const nextText = texts[i + 1];

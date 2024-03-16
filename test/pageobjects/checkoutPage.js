@@ -6,7 +6,7 @@ const constant = require('../Utilities/constant');
 const loginPage = require('./login.page');
 
 /**
- * sub page containing specific selectors and methods for a specific page
+ * Page Selectors
  */
 class checkout extends Page {
 
@@ -24,11 +24,9 @@ class checkout extends Page {
     get FinishButton(){ return $("#finish"); }
     get BackHomeButton(){ return $("#back-to-products"); }
     
-    
     ErrorTextXpath1 = "//h3[text()='Error: First Name is required']"
     ErrorTextXpath2 = "//h3[text()='Error: Last Name is required']"
     ErrorTextXpath3 = "//h3[text()='Error: Postal Code is required']"
-
     firstNameSVGTag = "(//*[local-name()='svg'])[1]/parent::div/input[@id='first-name']"
     lastNameSVGTag = "(//*[local-name()='svg'])[2]/parent::div/input[@id='last-name']"
     zipCodeSVGTag = "(//*[local-name()='svg'])[3]/parent::div/input[@id='postal-code']"
@@ -42,7 +40,9 @@ class checkout extends Page {
 
 
 
-
+/**
+ * Page related methods
+ */
 
 
     async validateCheckoutInfoPage(fname,lname,zip){

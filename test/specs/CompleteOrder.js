@@ -1,6 +1,5 @@
 const { expect } = require('@wdio/globals')
 const LoginPage = require('../pageobjects/login.page')
-const SecurePage = require('../pageobjects/secure.page')
 const storePage = require('../pageobjects/store')
 const checkout = require('../pageobjects/checkoutPage')
 const TestData = require('../Utilities/constant')

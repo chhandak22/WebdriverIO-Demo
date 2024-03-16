@@ -5,27 +5,14 @@ const assert = require('assert');
 const constant = require('../Utilities/constant');
 
 /**
- * sub page containing specific selectors and methods for a specific page
+ * Page Selectors
  */
 class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername () {
-        return $('#user-name');
-    }
 
-    get inputPassword () {
-        return $('#password');
-    }
-
-    get btnSubmit () {
-        return $('#login-button');
-    }
-
-    get errorMessage () {
-        return $("//h3[text()='Epic sadface: Sorry, this user has been locked out.']");
-    }
+    get inputUsername () { return $('#user-name');}
+    get inputPassword () { return $('#password');}
+    get btnSubmit () { return $('#login-button');}
+    get errorMessage () { return $("//h3[text()='Epic sadface: Sorry, this user has been locked out.']");}
 
     AppHeader = "//div[text()='Swag Labs']"
     errorTextXpath = "//h3[text()='Epic sadface: Sorry, this user has been locked out.']";
@@ -33,8 +20,7 @@ class LoginPage extends Page {
 
 
     /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
+     * Page related methods
      */
     async login (username, password) {
         await this.inputUsername.clearValue()
@@ -45,9 +31,7 @@ class LoginPage extends Page {
   }
 
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
+  
     open () {
         return super.open();
     }
